@@ -1,0 +1,2 @@
+﻿   | PTH         | filelist                   | url | verb | response                                                    |
+    | test/data/1 | a.xml, b.xml, c.xml, d.txt | /   | GET  | { "success": true, "paths": [ "a.xml", "b.xml", "c.xml" ] } |
