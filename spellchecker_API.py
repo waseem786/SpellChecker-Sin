@@ -2,7 +2,7 @@
 
 from bottle import route, template, get, run
 
-import xmldict
+import xmltodict
 import sys
 import os
 import codecs
@@ -14,12 +14,12 @@ from spellchecker import Spellchecker_si
 def spellcheck(word):
     word = word.decode('utf-8')
     if word:
-        xml_output = Spellchecker_si().spellcheck(word, format='TEXT')
+        xml_output = Spellchecker_si().spellcheck(word, format='XML')
     else:
-        xml_output = "No input word."
-    #json_output = xmldict.xml_to_dict(xml_output)
+        xml_output = "<spellcheck-result> <error> NO INPUT OR INVALID WORD </error> </spellcheck-result>"
+    json_output = xmltodict.parse(xml_output)
 
-    return xml_output
+    return json_output
 
 
 run(host='localhost', port=8080, debug=True)
