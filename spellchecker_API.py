@@ -13,12 +13,12 @@ from spellchecker import Spellchecker_si
 
 @route('/')
 @get('/spellcheck/<word>')
-def spellcheck(word=u'<word>'):
+def spellcheck(word=word):
 
-    spellcheckedXML = Spellchecker_si().spellcheck(word, format='FULLXML')
-    word = xmldict.xml_to_dict(spellcheckedXML)
+    xml_output = Spellchecker_si().spellcheck(word, format='FULLXML')
+    json_outout = xmldict.xml_to_dict(xml_output)
     
-    return template('INPUT WORD {{word}}', word=word)
+    return xml_output
 
 
 run(host='localhost', port=8080, debug=True)
