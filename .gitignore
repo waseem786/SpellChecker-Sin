@@ -1,0 +1,11 @@
+*.pyc
+*.py~
+__init__.py
+data.db
+mod_ED.py
+mod_Ngram.py
+mod_RuleBase.py
+mod_WB.py
+mod_WB.pyc
+spellchecker.py
+utilities.py
