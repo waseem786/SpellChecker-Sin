@@ -7,18 +7,17 @@ import sys
 import os
 import codecs
 import libxml2
-import libxslt
 from spellchecker import Spellchecker_si
 
 
 @route('/spellcheck/<word>')
 def spellcheck(word):
-
+    word = word.decode('utf-8')
     if word:
-        xml_output = Spellchecker_si().spellcheck(word, format='FULLXML')
+        xml_output = Spellchecker_si().spellcheck(word, format='TEXT')
     else:
         xml_output = "No input word."
-    json_output = xmldict.xml_to_dict(xml_output)
+    #json_output = xmldict.xml_to_dict(xml_output)
 
     return xml_output
 
